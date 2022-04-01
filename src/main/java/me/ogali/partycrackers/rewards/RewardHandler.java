@@ -13,10 +13,6 @@ public class RewardHandler {
         rewardsMap.put(reward.getId(), reward);
     }
 
-    public Reward getReward(String id) {
-        return rewardsMap.get(id);
-    }
-
     public List<Reward> getRewardsFromList(List<String> rewardIds) {
         List<Reward> rewardsList = new ArrayList<>();
         rewardIds.forEach(id -> {

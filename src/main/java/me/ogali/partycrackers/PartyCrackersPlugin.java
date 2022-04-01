@@ -1,6 +1,6 @@
 package me.ogali.partycrackers;
 
-import me.ogali.partycrackers.commands.PartyCrackerGiveCommand;
+import me.ogali.partycrackers.commands.PartyCrackerCommand;
 import me.ogali.partycrackers.commands.partyCrackerCommandCompletion;
 import me.ogali.partycrackers.files.File;
 import me.ogali.partycrackers.listeners.PartyCrackerDropListener;
@@ -34,11 +34,12 @@ public final class PartyCrackersPlugin extends JavaPlugin {
         instance = this;
         this.random = new Random();
         registerListeners();
+        registerCommands();
         registerHandlers();
         registerFiles();
         loadRewards();
         loadPartyCrackers();
-        Objects.requireNonNull(getCommand("partycracker")).setExecutor(new PartyCrackerGiveCommand());
+        Objects.requireNonNull(getCommand("partycracker")).setExecutor(new PartyCrackerCommand());
         Objects.requireNonNull(getCommand("partycracker")).setTabCompleter(new partyCrackerCommandCompletion());
     }
 
@@ -54,6 +55,11 @@ public final class PartyCrackersPlugin extends JavaPlugin {
 
     private void registerListeners() {
         getServer().getPluginManager().registerEvents(new PartyCrackerDropListener(this), this);
+    }
+
+    private void registerCommands() {
+        Objects.requireNonNull(getCommand("partycracker")).setExecutor(new PartyCrackerCommand());
+        Objects.requireNonNull(getCommand("partycracker")).setTabCompleter(new partyCrackerCommandCompletion());
     }
 
     private void registerHandlers() {

@@ -11,7 +11,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class PartyCrackerGiveCommand implements CommandExecutor {
+public class PartyCrackerCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,6 +19,27 @@ public class PartyCrackerGiveCommand implements CommandExecutor {
         if (!(sender instanceof Player player)) return false;
 
         if (args.length > 0) {
+
+            // I REALIZE THIS COULD HAVE BEEN DONE CLEANER WITH MULTIPLE CLASSES, I HAD LITTLE TIME LEFT SO I WENT WITH THIS
+            // RELOAD COMMAND
+            if (args[0].equalsIgnoreCase("reload")) {
+                switch (args.length) {
+                    case 1 -> Chat.tell(player, "&cUsage: /pcracker reload <file>");
+                    case 2 -> {
+                        if (args[1].equalsIgnoreCase("partycrackerfile")) {
+                            PartyCrackersPlugin.getInstance().getPartyCrackersFile().reloadFile();
+                            Chat.tell(player, "&aPartyCracker file successfully reloaded!");
+                            return true;
+                        } else if (args[1].equalsIgnoreCase("rewardsfile")) {
+                            PartyCrackersPlugin.getInstance().getRewardsFile().reloadFile();
+                            Chat.tell(player, "&aRewards file successfully reloaded!");
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            // GIVE COMMAND
             if (args[0].equalsIgnoreCase("give")) {
                 switch (args.length) {
                     case 1, 2, 3 -> {
