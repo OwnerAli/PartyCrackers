@@ -56,6 +56,8 @@ public class PartyCrackerGiveCommand implements CommandExecutor {
                 }
 
             }
+        } else {
+            Chat.tell(player, "&cUsage: /pcracker give <player> <partycracker name> <amount> | /pcracker reload");
         }
         return false;
     }

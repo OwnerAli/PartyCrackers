@@ -17,15 +17,30 @@ public class partyCrackerCommandCompletion implements TabCompleter {
 
         if (args.length == 1) {
             result.add("give");
-            return result;
-        } else if (args.length == 2) {
-            Bukkit.getOnlinePlayers().forEach(player -> result.add(player.getName()));
-            return result;
-        } else if (args.length == 3) {
-            result.addAll(PartyCrackersPlugin.getInstance().getPartyCrackerHandler().getAllPartyCrackerIds());
+            result.add("reload");
             return result;
         }
 
+        if (args[0].equalsIgnoreCase("give")) {
+            if (args.length == 2) {
+                Bukkit.getOnlinePlayers().forEach(player -> result.add(player.getName()));
+                return result;
+            } else if (args.length == 3) {
+                result.addAll(PartyCrackersPlugin.getInstance().getPartyCrackerHandler().getAllPartyCrackerIds());
+                return result;
+            } else if (args.length == 4) {
+                result.add("1");
+                result.add("2");
+                result.add("3");
+                return result;
+            }
+        } else if (args[0].equalsIgnoreCase("reload")) {
+            if (args.length == 2) {
+                result.add("partycrackerfile");
+                result.add("rewardsfile");
+                return result;
+            }
+        }
         return null;
     }
 

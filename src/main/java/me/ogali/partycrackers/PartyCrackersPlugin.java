@@ -144,4 +144,8 @@ public final class PartyCrackersPlugin extends JavaPlugin {
         return partyCrackersFile;
     }
 
+    public File getRewardsFile() {
+        return rewardsFile;
+    }
+
 }
