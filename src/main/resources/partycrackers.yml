@@ -1,0 +1,20 @@
+bluepartycracker:
+  item:
+    material: WARPED_BUTTON
+    name: "&9&lBLUE PARTY CRACKER"
+    lore: ["&fDrop me for a surprise!"]
+    glow: true
+  time-till-explode-in-seconds: 2
+  rewards: [super_dirt]
+  particle-colors: ["AQUA"]
+  sounds: [BLOCK_BAMBOO_PLACE]
+purplepartycracker:
+  item:
+    material: CRIMSON_BUTTON
+    name: "&5&lPURPLE PARTY CRACKER"
+    lore: ["&fDrop me for a surprise!"]
+    glow: true
+  time-till-explode-in-seconds: 2
+  rewards: [super_dirt, super_sand]
+  particle-colors: ["PURPLE"]
+  sounds: [ENTITY_GENERIC_EXPLODE]
