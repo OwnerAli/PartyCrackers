@@ -1,0 +1,7 @@
+name: PartyCrackers
+version: '${project.version}'
+main: me.ogali.partycrackers.PartyCrackersPlugin
+api-version: 1.18
+commands:
+  partycracker:
+    aliases: [pcracker]
