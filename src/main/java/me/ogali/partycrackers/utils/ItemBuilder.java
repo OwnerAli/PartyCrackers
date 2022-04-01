@@ -73,8 +73,8 @@ public class ItemBuilder {
     }
 
     public ItemBuilder setGlow() {
-        addEnchant(Enchantment.DURABILITY, 1);
-        setItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         return this;
     }
 
